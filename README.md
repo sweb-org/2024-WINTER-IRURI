@@ -48,12 +48,12 @@ export { Component }
 
 ### Commit Convention
 
-feat: 마크업, 디자인, 기능 개발
-fix: 버그 수정
-style: 코드 스타일 수정(ex. eslint, prettier 적용)
-docs: 문서(ex. 리드미 수정)
-refactor: 기능 상의 변경 없이 코드 리팩터링
-chore: 패키지 설치 및 삭제, eslint 혹은 prettier 변경 등 기타
+- feat: 마크업, 디자인, 기능 개발
+- fix: 버그 수정
+- style: 코드 스타일 수정(ex. eslint, prettier 적용)
+- docs: 문서(ex. 리드미 수정)
+- refactor: 기능 상의 변경 없이 코드 리팩터링
+- chore: 패키지 설치 및 삭제, eslint 혹은 prettier 변경 등 기타
 
 ## Members
 
