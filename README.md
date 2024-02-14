@@ -7,7 +7,7 @@
 ## Tech Stack
 
 Next.js  
-JavaScript  
+TypeScript  
 TailwindCSS  
 shadcn/ui  
 Jotai  
