@@ -12,7 +12,7 @@ function ProgressBar({ percentage }: ProgressBarProps) {
       </div>
       <div className="relative h-4 w-full overflow-hidden rounded-lg bg-gray-200">
         <div
-          className="absolute left-0 top-0 h-full bg-red-500"
+          className="absolute left-0 top-0 h-full bg-sky-700"
           style={{
             width: `${percentage}%`,
             transition: 'width 0.5s ease-in-out',

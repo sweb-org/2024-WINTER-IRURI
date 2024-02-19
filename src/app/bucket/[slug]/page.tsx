@@ -6,6 +6,7 @@ import ProgressBar from '@/components/progress/progress-bar'
 import { fetchDummyData } from '@/apis/api'
 import { Button } from '@/components/ui/button'
 import LoadingSpinner from '@/components/loading/loading'
+import AddForm from '@/components/form/add-form'
 
 interface Props {
   params: {
@@ -47,6 +48,10 @@ function BucketDetailPage({ params }: Props) {
   const selectedItems = checkedItems.size
   const progress = Math.round((selectedItems / totalItems) * 100)
 
+  const handleAddGoal = (goal: string) => {
+    setDummyData([...dummyData, goal])
+  }
+
   return (
     <div className="flex h-screen flex-col">
       <div className="flex justify-center p-10 text-3xl font-extrabold">
@@ -86,9 +91,9 @@ function BucketDetailPage({ params }: Props) {
           </div>
         </div>
       )}
-      <div className="mx-5 mb-4 flex flex-col gap-2">
-        <Button variant="destructive">세부 목표 추가</Button>
-        <Button>달성 완료</Button>
+      <div className="mx-5 mb-4 flex flex-col gap-3">
+        <AddForm onSubmit={handleAddGoal} placeholder="세부 목표 추가" />
+        <Button className="h-12 text-xl">달성 완료</Button>
       </div>
     </div>
   )
