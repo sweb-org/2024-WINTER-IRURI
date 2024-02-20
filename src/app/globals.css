@@ -68,12 +68,12 @@
 
 @layer base {
   * {
-    @apply mx-auto h-[100vh] max-w-[450px] border-border;
+    @apply border-border;
   }
   html {
     @apply bg-gray-400;
   }
   body {
-    @apply bg-white text-foreground;
+    @apply mx-auto h-[100vh] w-[450px] bg-white text-foreground;
   }
 }
