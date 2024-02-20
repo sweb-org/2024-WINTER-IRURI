@@ -63,7 +63,7 @@ function BucketDetailPage({ params }: Props) {
       {loading ? (
         <LoadingSpinner />
       ) : (
-        <div className="flex flex-grow justify-start overflow-y-auto scrollbar-hide">
+        <div className="mx-12 overflow-y-auto scrollbar-hide">
           <div className="mx-5">
             {dummyData.map((data, index) => (
               <div key={index} className="m-5">
