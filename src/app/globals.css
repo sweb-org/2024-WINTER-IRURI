@@ -68,7 +68,7 @@
 
 @layer base {
   * {
-    @apply mx-auto max-w-[450px] border-border;
+    @apply mx-auto h-[100vh] max-w-[450px] border-border;
   }
   html {
     @apply bg-gray-400;
