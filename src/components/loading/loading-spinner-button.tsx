@@ -4,7 +4,7 @@ import { Loader2 } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 
-export default function LoadingSpinner() {
+function LoadingSpinnerButton() {
   return (
     <div className="flex h-screen items-center justify-center">
       <Button disabled>
@@ -14,3 +14,5 @@ export default function LoadingSpinner() {
     </div>
   )
 }
+
+export default LoadingSpinnerButton
