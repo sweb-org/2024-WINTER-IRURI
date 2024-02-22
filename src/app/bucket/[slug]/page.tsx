@@ -2,11 +2,11 @@
 
 import React, { useEffect, useState } from 'react'
 
-import ProgressBar from '@/components/progress/progress-bar'
+import LoadingSpinnerButton from '@/components/loading/loading-spinner-button'
+import BucketDetailHeader from '@/components/bucket-detail/bucket-detail-header'
+import BucketDetailList from '@/components/bucket-detail/bucket-detail-list'
+import BucketDetailBottom from '@/components/bucket-detail/bucket-detail-bottom'
 import { fetchDummyData } from '@/apis/api'
-import { Button } from '@/components/ui/button'
-import LoadingSpinner from '@/components/loading/loading'
-import AddForm from '@/components/form/add-form'
 
 interface Props {
   params: {
@@ -16,9 +16,11 @@ interface Props {
 
 function BucketDetailPage({ params }: Props) {
   const slug = decodeURIComponent(params.slug)
-  const [checkedItems, setCheckedItems] = useState(new Set<number>())
   const [dummyData, setDummyData] = useState<string[]>([])
-  const [loading, setLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true)
+  const [checkedItems, setCheckedItems] = useState<Set<number>>(
+    new Set<number>(),
+  )
 
   useEffect(() => {
     async function fetchData() {
@@ -28,11 +30,16 @@ function BucketDetailPage({ params }: Props) {
       } catch (error) {
         console.error(error)
       } finally {
-        setLoading(false)
+        setIsLoading(false)
       }
     }
     fetchData()
   }, [])
+
+  const selectedItems = checkedItems.size
+  const calculatedProgress = Math.round(
+    (selectedItems / dummyData.length) * 100,
+  )
 
   const handleCheckboxChange = (index: number) => {
     const newCheckedItems = new Set(checkedItems)
@@ -44,57 +51,23 @@ function BucketDetailPage({ params }: Props) {
     setCheckedItems(newCheckedItems)
   }
 
-  const totalItems = dummyData.length
-  const selectedItems = checkedItems.size
-  const progress = Math.round((selectedItems / totalItems) * 100)
-
   const handleAddGoal = (goal: string) => {
     setDummyData([...dummyData, goal])
   }
 
   return (
     <div className="flex h-screen flex-col">
-      <div className="flex justify-center p-10 text-3xl font-extrabold">
-        {slug}
-      </div>
-      <ProgressBar percentage={progress || 0} />
-      <div className="mx-10 my-4 text-2xl font-bold">세부 목표</div>
-      <hr className="mx-10" />
-      {loading ? (
-        <LoadingSpinner />
+      <BucketDetailHeader slug={slug} progress={calculatedProgress} />
+      {isLoading ? (
+        <LoadingSpinnerButton />
       ) : (
-        <div className="mx-12 overflow-y-auto scrollbar-hide">
-          <div className="mx-5">
-            {dummyData.map((data, index) => (
-              <div key={index} className="m-5">
-                <div className="space-x-6">
-                  <input
-                    type="checkbox"
-                    id={`checkbox-${index}`}
-                    checked={checkedItems.has(index)}
-                    onChange={() => handleCheckboxChange(index)}
-                    className="h-4 w-4"
-                  />
-                  <label
-                    htmlFor={`checkbox-${index}`}
-                    className={
-                      checkedItems.has(index)
-                        ? 'text-xl line-through'
-                        : 'text-xl'
-                    }
-                  >
-                    {data}
-                  </label>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+        <BucketDetailList
+          dummyData={dummyData}
+          checkedItems={checkedItems}
+          handleCheckboxChange={handleCheckboxChange}
+        />
       )}
-      <div className="mx-5 mb-4 flex flex-col gap-3">
-        <AddForm onSubmit={handleAddGoal} placeholder="세부 목표 추가" />
-        <Button className="h-12 text-xl">달성 완료</Button>
-      </div>
+      <BucketDetailBottom handleAddGoal={handleAddGoal} />
     </div>
   )
 }
