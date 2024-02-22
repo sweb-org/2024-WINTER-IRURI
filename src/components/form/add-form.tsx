@@ -1,7 +1,9 @@
 'use client'
 
 import React, { useState } from 'react'
+
 import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 
 interface Props {
   onSubmit: (goal: string) => void
@@ -19,16 +21,13 @@ function AddForm({ onSubmit, placeholder }: Props) {
 
   return (
     <form onSubmit={handleSubmit} className="flex w-full gap-2">
-      <input
+      <Input
         type="text"
         value={addDetail}
         onChange={(e) => setAddDetail(e.target.value)}
         placeholder={placeholder}
-        className="flex-grow rounded-lg border border-gray-400 p-2"
       />
-      <Button type="submit" className="h-12 bg-blue-900 text-xl">
-        추가
-      </Button>
+      <Button type="submit">추가</Button>
     </form>
   )
 }
