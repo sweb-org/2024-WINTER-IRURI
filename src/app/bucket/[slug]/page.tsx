@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react'
 import LoadingSpinnerButton from '@/components/loading/loading-spinner-button'
 import BucketDetailHeader from '@/components/bucket-detail/bucket-detail-header'
 import BucketDetailList from '@/components/bucket-detail/bucket-detail-list'
-import BucketDetailBottom from '@/components/bucket-detail/bucket-detail-bottom'
+import AddForm from '@/components/form/add-form'
 import { fetchDummyData } from '@/apis/api'
 
 interface Props {
@@ -56,18 +56,21 @@ function BucketDetailPage({ params }: Props) {
   }
 
   return (
-    <div className="flex h-screen flex-col">
+    <div className="flex flex-col">
       <BucketDetailHeader slug={slug} progress={calculatedProgress} />
       {isLoading ? (
         <LoadingSpinnerButton />
       ) : (
         <BucketDetailList
+          slug={slug}
           dummyData={dummyData}
           checkedItems={checkedItems}
           handleCheckboxChange={handleCheckboxChange}
         />
       )}
-      <BucketDetailBottom handleAddGoal={handleAddGoal} />
+      <div className="mx-10 mb-5">
+        <AddForm onSubmit={handleAddGoal} placeholder="세부 목표 추가" />
+      </div>
     </div>
   )
 }

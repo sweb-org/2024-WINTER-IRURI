@@ -14,8 +14,6 @@ function BucketDetailHeader({ slug, progress }: BucketDetailHeaderProps) {
         {slug}
       </div>
       <ProgressBar percentage={progress || 0} />
-      <div className="mx-10 my-4 text-2xl font-bold">세부 목표</div>
-      <hr className="mx-10" />
     </>
   )
 }
