@@ -77,7 +77,7 @@ export default function BucketDetailList({
                     {`${slug}에 대한 세부 목표입니다.`}
                   </FormDescription>
                 </article>
-                <details className="max-h-96 w-full overflow-y-auto">
+                <figure className="max-h-96 w-full overflow-y-auto">
                   {dummyData.map((item, index) => (
                     <FormItem
                       key={index}
@@ -113,7 +113,7 @@ export default function BucketDetailList({
                       </FormLabel>
                     </FormItem>
                   ))}
-                </details>
+                </figure>
               </main>
               <FormMessage />
             </FormItem>
