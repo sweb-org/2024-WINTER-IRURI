@@ -10,9 +10,9 @@ interface BucketDetailHeaderProps {
 function BucketDetailHeader({ slug, progress }: BucketDetailHeaderProps) {
   return (
     <>
-      <div className="flex justify-center p-10 text-3xl font-extrabold">
+      <header className="flex justify-center p-10 text-3xl font-extrabold">
         {slug}
-      </div>
+      </header>
       <ProgressBar percentage={progress || 0} />
     </>
   )

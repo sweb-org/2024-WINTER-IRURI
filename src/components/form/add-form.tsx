@@ -30,7 +30,9 @@ function AddForm({ onSubmit, placeholder }: Props) {
       <Input
         type="text"
         value={addDetail}
-        onChange={(e) => setAddDetail(e.target.value)}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setAddDetail(e.target.value)
+        }
         placeholder={placeholder}
         required
       />

@@ -56,7 +56,7 @@ function BucketDetailPage({ params }: Props) {
   }
 
   return (
-    <div className="flex flex-col">
+    <main className="flex flex-col">
       <BucketDetailHeader slug={slug} progress={calculatedProgress} />
       {isLoading ? (
         <LoadingSpinnerButton />
@@ -68,10 +68,10 @@ function BucketDetailPage({ params }: Props) {
           handleCheckboxChange={handleCheckboxChange}
         />
       )}
-      <div className="mx-10 mb-5">
+      <footer className="mx-10 mb-5">
         <AddForm onSubmit={handleAddGoal} placeholder="세부 목표 추가" />
-      </div>
-    </div>
+      </footer>
+    </main>
   )
 }
 

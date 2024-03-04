@@ -1,5 +1,7 @@
 'use client'
 
+import React from 'react'
+
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
@@ -65,8 +67,8 @@ export default function BucketDetailList({
           name="dummyData"
           render={() => (
             <FormItem>
-              <div className="my-2 flex flex-col space-y-4">
-                <div className="w-full">
+              <main className="my-2 flex flex-col space-y-4">
+                <article className="w-full">
                   <FormLabel className="mx-2 text-2xl font-bold">
                     세부 목표
                   </FormLabel>
@@ -74,8 +76,8 @@ export default function BucketDetailList({
                   <FormDescription className="text-md mx-4">
                     {`${slug}에 대한 세부 목표입니다.`}
                   </FormDescription>
-                </div>
-                <div className="max-h-96 w-full overflow-y-auto">
+                </article>
+                <details className="max-h-96 w-full overflow-y-auto">
                   {dummyData.map((item, index) => (
                     <FormItem
                       key={index}
@@ -111,8 +113,8 @@ export default function BucketDetailList({
                       </FormLabel>
                     </FormItem>
                   ))}
-                </div>
-              </div>
+                </details>
+              </main>
               <FormMessage />
             </FormItem>
           )}
