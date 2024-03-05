@@ -2,10 +2,10 @@
 
 import React, { useEffect, useState } from 'react'
 
-import LoadingSpinnerButton from '@/components/loading/loading-spinner-button'
+import LoadingSpinnerButton from '@/components/common/loading/loading-spinner-button'
 import BucketDetailHeader from '@/components/bucket-detail/bucket-detail-header'
 import BucketDetailList from '@/components/bucket-detail/bucket-detail-list'
-import AddForm from '@/components/form/add-form'
+import AddForm from '@/components/common/form/add-form'
 import { fetchDummyData } from '@/apis/api'
 
 interface Props {

@@ -1,8 +1,10 @@
+import React from 'react'
+
 import type { Metadata } from 'next'
 import './globals.css'
 import { Toaster } from '@/components/ui/toaster'
 
-import NavigationBar from '@/components/navigation/nav-bar'
+import NavigationBar from '@/components/common/navigation/nav-bar'
 import { cn } from '@/lib/utils'
 import localFont from 'next/font/local'
 
@@ -21,8 +23,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={pretendard.className}>
-        <NavigationBar />
         <div className="mx-auto min-h-screen max-w-screen-mobile bg-white">
+          <NavigationBar />
           {children}
           <Toaster />
         </div>

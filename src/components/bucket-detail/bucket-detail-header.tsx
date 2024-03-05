@@ -1,6 +1,6 @@
 import React from 'react'
 
-import ProgressBar from '../progress/progress-bar'
+import ProgressBar from '../common/progress/progress-bar'
 
 interface BucketDetailHeaderProps {
   slug: string

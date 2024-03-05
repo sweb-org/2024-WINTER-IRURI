@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import SheetDemo from '@/components/navigation/sheetDemo'
+import SheetDemo from '@/components/common/navigation/sheet-demo'
 
 export default function NavigationBar() {
   return (
